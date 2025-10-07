@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineGuardian - AI Safety Companion</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2B6CB0',
+                        secondary: '#4299E1',
+                        accent: '#ED8936',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .safety-card {
+            transition: all 0.3s ease;
+        }
+        .safety-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="shield" class="w-8 h-8"></i>
+                <span class="text-xl font-bold">MineGuardian</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-accent font-medium">Dashboard</a>
+                <a href="#" class="hover:text-accent font-medium">Safety Videos</a>
+                <a href="#" class="hover:text-accent font-medium">Checklists</a>
+                <a href="#" class="hover:text-accent font-medium">Report Hazard</a>
+            </div>
+            <button class="md:hidden">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Your AI-Powered Mining Safety Companion</h1>
+            <p class="text-xl max-w-3xl mx-auto mb-8">Daily safety prompts, checklists, and training videos tailored to your mining role and tasks.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-accent hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-full shadow-lg transition">
+                    Get Started
+                </button>
+                <button class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-full shadow-lg transition">
+                    Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Key Safety Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 safety-card">
+                    <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="clipboard" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Role-Based Checklists</h3>
+                    <p class="text-gray-600">Daily safety checklists tailored to your specific mining role and assigned tasks.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 safety-card">
+                    <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="video" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Safety Video of the Day</h3>
+                    <p class="text-gray-600">Short, engaging videos covering accident case studies, DGMS advisories, and global best practices.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 safety-card">
+                    <div class="bg-primary bg-opacity-10 w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="alert-triangle" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Hazard Reporting</h3>
+                    <p class="text-gray-600">Report safety hazards with photo/video evidence and multilingual voice support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Today's Safety Video</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="video-thumbnail bg-gray-200 aspect-video relative">
+                    <img src="http://static.photos/industry/1024x576/42" alt="Safety Video Thumbnail" class="w-full h-full object-cover">
+                    <div class="play-button">
+                        <i data-feather="play" class="text-primary w-6 h-6"></i>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-bold text-gray-800">Preventing Roof Collapse in Underground Mines</h3>
+                    <p class="text-gray-600 mt-2">Learn essential precautions and early warning signs from this DGMS case study.</p>
+                    <div class="flex items-center mt-4">
+                        <div class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                            5 min watch
+                        </div>
+                        <div class="ml-4 flex items-center text-gray-500">
+                            <i data-feather="eye" class="w-4 h-4 mr-1"></i>
+                            <span>1,245 views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Your Daily Safety Checklist</h2>
+            <div class="max-w-2xl mx-auto bg-gray-50 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-800">Underground Coal Miner - Shift Start</h3>
+                    <div class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                        3/5 completed
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="check1" class="h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="check1" class="ml-3 text-gray-700">Verified all PPE is in good condition (helmet, boots, gloves)</label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="check2" class="h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="check2" class="ml-3 text-gray-700">Checked self-rescuer and gas detector functionality</label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="check3" class="h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="check3" class="ml-3 text-gray-700">Attended pre-shift safety briefing</label>
+                    </div>
+                    
+                    <div class="flex items-center opacity-50">
+                        <input type="checkbox" id="check4" disabled class="h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="check4" class="ml-3 text-gray-700">Inspected work area for roof stability (to be completed underground)</label>
+                    </div>
+                    
+                    <div class="flex items-center opacity-50">
+                        <input type="checkbox" id="check5" disabled class="h-5 w-5 text-primary rounded border-gray-300 focus:ring-primary">
+                        <label for="check5" class="ml-3 text-gray-700">Verified communication system functionality (to be completed underground)</label>
+                    </div>
+                </div>
+                
+                <button class="mt-6 w-full bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-4 rounded-lg shadow transition">
+                    Submit Checklist
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hazard Reporting CTA -->
+    <section class="py-16 bg-accent text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6">See Something Unsafe?</h2>
+                <p class="text-xl mb-8">Report hazards immediately with photo/video evidence to protect your team.</p>
+                <button class="bg-white hover:bg-gray-100 text-accent font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center mx-auto">
+                    <i data-feather="alert-triangle" class="mr-2 w-5 h-5"></i>
+                    Report Hazard Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="shield" class="w-8 h-8 text-primary"></i>
+                        <span class="text-xl font-bold">MineGuardian</span>
+                    </div>
+                    <p class="text-gray-400">Your AI-powered mining safety companion, delivering daily safety support for Indian mine workers.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">DGMS Guidelines</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Safety Videos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Training Materials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Download App</h4>
+                    <div class="space-y-3">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white w-full py-2 px-4 rounded flex items-center justify-center">
+                            <i data-feather="download" class="mr-2 w-4 h-4"></i>
+                            Android
+                        </button>
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white w-full py-2 px-4 rounded flex items-center justify-center">
+                            <i data-feather="download" class="mr-2 w-4 h-4"></i>
+                            iOS
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 MineGuardian. Developed in compliance with DGMS standards.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Simple animation for cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.safety-card');
+            cards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 100}ms`;
+            });
+        });
+    </script>
+</body>
+</html>
