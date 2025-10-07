@@ -26,8 +26,8 @@ MineGuardian is a responsive web prototype designed to enhance safety in mining 
 ---
 
 ## 🖼️ Preview
-
-(https://github.com/Adityashukla1019/Mine-Guardian/assets/preview.png)
+[
+(https://github.com/Adityashukla1019/Mine-Guardian/assets/preview.png)](https://adityashukla1019.github.io/Mine-Guardian/#)
 
 ## 🧑‍💻 How to Run Locally
 
